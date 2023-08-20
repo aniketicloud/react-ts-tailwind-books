@@ -1,9 +1,17 @@
+import { useState } from "react";
+import { BookCreate } from "./components/BookCreate";
+import { Book } from "./commonTypes";
+
 export const App = () => {
+  const [books, setBooks] = useState<Book[]>([]);
+
+  const createBook = (title: string): void => {
+    console.log("Need to add book with title:", title);
+  };
+
   return (
     <>
-      <div className="p-4 pt-2 text-3xl font-bold text-orange-600 underline">
-        Hi
-      </div>
+      <BookCreate onCreate={createBook} />
     </>
   );
 };
